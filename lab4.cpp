@@ -27,7 +27,13 @@ int main()
 
     std::array inputOutput{6,9,77,23,15};
     std::array coefficients{1,2,3,4,5,6,7};
-    product(inputOutput,coefficients);
+
+    int* addr = inputOutput.data();
+    addr += 1;
+    size_t len = inputOutput.size();
+    len -= 1;
+    std::span<int> t = {addr, len};
+    product(t,coefficients);
     for (int el : inputOutput)
     {
         std::cout << el << std::endl;
