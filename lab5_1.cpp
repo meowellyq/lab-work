@@ -57,7 +57,14 @@ size_t findSpace(std::string_view str)
 
 
 void runTests() {
-
+    assert(secondWord("Hello world") == "world");
+    assert(secondWord("Hello my dear") == "my");
+    assert(secondWord("") == "");
+    assert(secondWord(" ") == "");
+    assert(secondWord(" a ") == "a");
+    assert(secondWord("a  ") == "");
+    assert(secondWord("a  b") == "");
+    assert(secondWord("hello     world    dear") == "");
 
     std::cout << " все работает :) " << std::endl;
 }
